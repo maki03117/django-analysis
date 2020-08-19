@@ -185,7 +185,7 @@ def output(request):
   options.add_argument("--window-size=1920,1200")
 
   # Start a driver
-  driver = webdriver.Chrome(executable_path=os.getcwd()+"/chromedriver", options=options) # or ChromeDriverManager().install()
+  driver = webdriver.Chrome(options=options) # or ChromeDriverManager().install()
 
   driver.get('https://sumopay.asia/yj2bxj3z9hhae60/login')
 
