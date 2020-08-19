@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Script Runner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h5 class="mt-3">Script Runner</h5>
+          <div class="card mb-3">
+            <div class="card-body">
+              <button class="btn btn-primary" type="submit" onclick="location.href='{% url 'script'%}'">Run Script!</button>
+              {% if message %}
+                <small id="emailHelp" class="form-text text-muted">{{ message }}</small>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+    <div class="row">
+      <div class="col">
+        <h5 class="mt-3 mb-3">Job Queue</h5>
+        {% if jobs %}
+        {% for job in jobs %}
+        <div class="card mb-3">
+          <div class="card-body">
+            <h6>{{ job.func_name }}</h6>
+            <small class="text-muted d-block">Job ID: {{ job.id }}</small>
+            <small class="text-muted d-block">Status: {{ job.get_status }}</small>
+            <small class="text-muted d-block">Created at: {{ job.created_at }}</small>
+            <small class="text-muted d-block">Enqueued at: {{ job.enqueued_at }}</small>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No jobs in the queue</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
