@@ -1,0 +1,9 @@
+pandas
+numpy==1.17.2
+datetime==4.3
+selenium==3.141.0
+webdriver_manager==3.2.1
+pygsheets==2.0.3.1
+requests
+gunicorn==20.0.4
+django-heroku

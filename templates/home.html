@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Python button script</title>
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $.ajax({method: "GET", url: "test.js", dataType: "script", success: function(result){
+            alert( "complete" );
+        }});
+      });
+    });
+    </script-->
+  </head>
+  <body>
+    <button onclick="location.href='{% url 'script'%}'">Run Script</button>
+    <p>
+      {% if login_result %}
+        {{ login_result }}
+      {% endif %}
+    </p>
+    <p>
+      {% if all_done %}
+        {{ all_done }}
+      {% endif %}
+    </p>
+  </body>
+</html>
