@@ -8,3 +8,4 @@ requests
 gunicorn==20.0.4
 django-heroku
 rq
+django-cors-headers
