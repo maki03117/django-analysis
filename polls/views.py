@@ -34,6 +34,8 @@ def open_google_sheet(name):
   return wks
 
 def button(request):
+  if request.method == 'GET':
+    add_task(request)
   return render(request, 'home.html')
 
 def add_task(request):
