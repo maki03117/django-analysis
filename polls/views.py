@@ -61,7 +61,7 @@ def output():
   login(driver)
 
   # Use Google Sheet API to retrive user's input, start date and end date, from the google sheet
-  wks = open_google_sheet('PI')
+  wks = open_google_sheet('PI Key Analysis')
   result = wks.get_values('A500', 'B500')
 
   # Type in dates desired by the user and retrieve the desired data
