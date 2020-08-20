@@ -150,10 +150,10 @@ def overall_analyse(wks, csv_file):
   # Write results into the google sheet
   wks.set_dataframe(pd.DataFrame(np.array(gen)), start=(start_row,3), copy_head=False, extend=True)
 
-  i = 10
+  i = 9
   for bank in ORIGINAL_BANK_LIST: 
     wks.set_dataframe(pd.DataFrame(np.array(vars()[bank])), start=(start_row, i), copy_head=False, extend=True)
-    i += 6
+    i += 5
   
   return
 

@@ -67,21 +67,12 @@ def output():
   # Type in dates desired by the user and retrieve the desired data
   driver.find_element_by_id('start_time').send_keys(result[0][0])
   driver.find_element_by_id('end_time').send_keys(result[0][1])
-  #driver.execute_script('document.getElementsByClassName("text-right")[0].getElementsByTagName("button")[0].click();')
   driver.find_element_by_xpath("//div[@class='text-right']/button[@type='submit']").click()
 
   # Download a csv file containing the desired data
-  # Waits up to 10 seconds before throwing a TimeoutException unless it finds the element to return within 10 seconds.
-  #button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='float-right']/a")))
-  #button.click()
-
-  # Download a csv file containing the desired data
   driver.find_element_by_xpath("//div[@class='float-right']/a").click()
-  #driver.execute_script("document.getElementsByClassName('float-right')[0].getElementsByTagName('a')[0].click();")
 
   # Wait up to 30 seconds for a file taking time to download
-  #driver.get("chrome://downloads/")
-  #WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "progress")))
   time.sleep(50)
 
   driver.quit()
