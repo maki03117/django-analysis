@@ -35,8 +35,6 @@ def open_google_sheet(name):
   return wks
 
 def button(request):
-  if request.method == 'POST':
-    add_task(request)
   jobs = q.jobs
   return render(request, 'home.html', {'jobs': jobs})
 
