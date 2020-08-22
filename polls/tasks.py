@@ -114,10 +114,8 @@ def overall_analyse(wks, csv_file):
   # Find unique bank names and make a list with each name to hold analysed data such as profits for each bank
   filtered = temp[~temp['Status'].isin(['Not processed', 'Failed', 'Other issues', 'Failed(CB failure)'])]
   bank_list = sorted(filtered['Bank'].unique())
-  temp = []
   for bank in bank_list:
     vars()[bank] = []
-    temp.append(vars()[bank])
 
   # Data including income, profits etc.
   gen = []
@@ -153,7 +151,7 @@ def overall_analyse(wks, csv_file):
   wks.set_dataframe(pd.DataFrame(np.array(gen)), start=(start_row,3), copy_head=False, extend=True)
 
   for bank in ORIGINAL_BANK_LIST: 
-    if bank not in temp:
+    if bank not in bank_list:
       vars()[bank] = []
       for i in range(last_day-(start_row-3)):
         vars()[bank].append(DEFAULT)
