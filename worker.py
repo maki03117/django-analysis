@@ -9,6 +9,6 @@ conn = redis.from_url(redis_url)
 
 if __name__ == '__main__':
   with Connection(conn):
-    worker = Worker(['default'])
+    worker = Worker(map(Queue, ['default']))
     worker.work()
   
