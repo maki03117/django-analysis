@@ -13,10 +13,11 @@ import os
 
 import pygsheets
 
-#from datetime import datetime
 from polls.__init__ import q
 from polls.tasks import login
 from polls.tasks import overall_analyse
+
+import urllib.parse
 
 def open_google_sheet(name):
   """
@@ -65,15 +66,21 @@ def output():
   result = wks.get_values('A500', 'B500')
 
   # Type in dates desired by the user and retrieve the desired data
-  driver.find_element_by_id('start_time').send_keys(result[0][0])
-  driver.find_element_by_id('end_time').send_keys(result[0][1])
-  driver.find_element_by_xpath("//div[@class='text-right']/button[@type='submit']").click()
+  # driver.find_element_by_id('start_time').send_keys(result[0][0])
+  # driver.find_element_by_id('end_time').send_keys(result[0][1])
+  # driver.find_element_by_xpath("//div[@class='text-right']/button[@type='submit']").click()
 
   # Download a csv file containing the desired data
-  driver.find_element_by_xpath("//div[@class='float-right']/a").click()
+  # driver.find_element_by_xpath("//div[@class='float-right']/a").click()
+  start_date = urllib.parse.quote(result[0][0], safe='')
+  end_date = urllib.parse.quote(result[0][1], safe='')
 
-  # Wait up to 30 seconds for a file taking time to download
-  time.sleep(50)
+  link = 'https://sumopay.asia/yj2bxj3z9hhae60/csv-download?start_time=' + start_date + '&' + 'end_time=' + end_date;
+
+  driver.get(link)
+
+  # Wait up to 40 seconds for a file taking time to download
+  time.sleep(40)
 
   driver.quit()
 
