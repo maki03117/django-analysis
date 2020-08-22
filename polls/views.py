@@ -37,7 +37,8 @@ def open_google_sheet(name):
 def button(request):
   if request.method == 'GET':
     add_task(request)
-  return render(request, 'home.html')
+  jobs = q.jobs
+  return render(request, 'home.html', {'jobs': jobs})
 
 def add_task(request):
   task = q.enqueue(output)  # Send a job to the task queue
@@ -45,7 +46,6 @@ def add_task(request):
   q_len = len(q)  # Get the queue length
   message = f"Task queued at {task.enqueued_at.now().strftime('%a, %D %X')}. {q_len} jobs queued"
   return render(request, 'home.html', {'message': message, 'jobs': jobs})
-  #render(request, 'home.html', {'login_result': login_result, 'all_done': all_done})
 
 def output():
   # Run chrome in headless mode
