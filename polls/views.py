@@ -13,7 +13,7 @@ import os
 
 import pygsheets
 
-from polls.__init__ import q
+from polls import q
 from polls.tasks import login
 from polls.tasks import overall_analyse
 
@@ -35,8 +35,8 @@ def open_google_sheet(name):
   return wks
 
 def button(request):
-  if request.method == 'GET':
-    add_task(request)
+  # if request.method == 'GET':
+  #   add_task(request)
   jobs = q.jobs
   return render(request, 'home.html', {'jobs': jobs})
 
