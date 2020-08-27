@@ -31,7 +31,7 @@ def gen_analyse(arr, group):
   arr.append(total_records)
   
   # TOTAL VALUE
-  total_value = '{:,}'.format(group['Amount'].sum())
+  total_value = '{:,}'.format(group['CB Deposit'].sum())
   arr.append(total_value)
   
   group = group[~group['Status'].isin(['Not processed', 'Failed', 'Other issues', 'Failed(CB failure)'])]
@@ -47,7 +47,7 @@ def gen_analyse(arr, group):
   
   # TOTAL DEPOSITS
   global total_deposits_temp 
-  total_deposits_temp = group['Amount'].sum()
+  total_deposits_temp = group['CB Deposit'].sum()
   total_deposits = '{:,}'.format(total_deposits_temp)
   arr.append(total_deposits)
   
@@ -59,7 +59,7 @@ def gen_analyse(arr, group):
 
 def bank_analyse(arr, data):
   # TOTAL VALUE
-  bank_total_deposits_temp = data['Amount'].sum()
+  bank_total_deposits_temp = data['CB Deposit'].sum()
   bank_total_deposits = '{:,}'.format(bank_total_deposits_temp)
   arr.append(bank_total_deposits)
 
