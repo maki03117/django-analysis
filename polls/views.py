@@ -49,7 +49,7 @@ def output():
   # Run chrome in headless mode
   options = Options()
   options.headless = True
-  #options.add_argument("download.default_directory=os.getcwd()")
+
   prefs = {"download.default_directory": os.getcwd()}
   options.add_experimental_option("prefs",prefs)
   options.add_argument("--window-size=1920,1200")
@@ -63,13 +63,6 @@ def output():
   wks = open_google_sheet('PI Key Analysis')
   result = wks.get_values('A500', 'B500')
 
-  # Type in dates desired by the user and retrieve the desired data
-  # driver.find_element_by_id('start_time').send_keys(result[0][0])
-  # driver.find_element_by_id('end_time').send_keys(result[0][1])
-  # driver.find_element_by_xpath("//div[@class='text-right']/button[@type='submit']").click()
-
-  # Download a csv file containing the desired data
-  # driver.find_element_by_xpath("//div[@class='float-right']/a").click()
   start_date = urllib.parse.quote(result[0][0], safe='')
   end_date = urllib.parse.quote(result[0][1], safe='')
 

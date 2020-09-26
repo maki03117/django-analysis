@@ -145,8 +145,6 @@ def overall_analyse(wks, csv_file):
       for i in range(last_day-(length+start_row-3)):
         vars()[bank].append(DEFAULT)
 
-  #wks.clear(fields='*')
-
   # Write results into the google sheet
   wks.set_dataframe(pd.DataFrame(np.array(gen)), start=(start_row,3), copy_head=False, extend=True)
 
