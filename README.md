@@ -1,9 +1,9 @@
 # django-analysis
 
 The purpose of this web app:
-* web scrape a specific website
+* log in to a specific website by web scraping
 * retrieve a date range from a specific google sheet by using a python library called pygsheets
-* using the retrieved date range, filter a bunch of data listed on the website and download it as a CSV file 
+* using the retrieved date range, download a desired data as a CSV file through a link
 * convert the CSV file to Python Pandas and analyse the data 
 * again using pygsheets, update the google sheet from which the data range is retrieved by inserting the result
 
