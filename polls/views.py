@@ -13,9 +13,9 @@ import os
 
 import pygsheets
 
-from polls import q
-from polls.tasks import login
-from polls.tasks import overall_analyse
+# from polls import q
+# from polls.tasks import login
+# from polls.tasks import overall_analyse
 
 import urllib.parse
 
@@ -73,7 +73,7 @@ def output():
   driver.get(link)
 
   # Wait up to 40 seconds for a file taking time to download
-  time.sleep(40)
+  time.sleep(60)
 
   driver.quit()
 
@@ -88,5 +88,3 @@ def output():
   os.remove(csv_file)
 
   return 
-
-# output()
