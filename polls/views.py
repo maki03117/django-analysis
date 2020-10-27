@@ -14,8 +14,7 @@ import os
 import pygsheets
 
 from polls import q
-from polls.tasks import login
-from polls.tasks import overall_analyse
+from tasks import login, overall_analyse
 
 import urllib.parse
 
@@ -65,9 +64,11 @@ def output():
 
   start_date = urllib.parse.quote(result[0][0], safe='')
   end_date = urllib.parse.quote(result[0][1], safe='')
+  print(start_date, end_date)
 
   link = 'https://sumopay.asia/yj2bxj3z9hhae60/csv-download?start_time=' + start_date + '&' + 'end_time=' + end_date;
-
+  print(link)
+  # return
   driver.get(link)
 
   # Wait up to 40 seconds for a file taking time to download
@@ -87,5 +88,4 @@ def output():
 
   return 
 
-
-
+# output()
