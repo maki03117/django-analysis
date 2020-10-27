@@ -14,7 +14,8 @@ import os
 import pygsheets
 
 from polls import q
-from tasks import login, overall_analyse
+from polls.tasks import login
+from polls.tasks import overall_analyse
 
 import urllib.parse
 
