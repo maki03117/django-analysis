@@ -52,7 +52,7 @@ def gen_analyse(arr, group):
   arr.append(total_deposits)
   
   # DEPOSITS %
-  deposite_rate = round((int(total_deposits) / int(total_value)) * 100) 
+  deposite_rate = round((total_deposits_temp / group['CB Deposit'].sum()) * 100) 
   arr.append(str(deposite_rate)+"%")
 
   return 
