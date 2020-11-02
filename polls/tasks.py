@@ -31,6 +31,7 @@ def gen_analyse(arr, group):
   arr.append(total_records)
   
   # TOTAL VALUE
+  total_value_temp = group['CB Deposit'].sum()
   total_value = '{:,}'.format(group['CB Deposit'].sum())
   arr.append(total_value)
   
@@ -52,7 +53,7 @@ def gen_analyse(arr, group):
   arr.append(total_deposits)
   
   # DEPOSITS %
-  deposite_rate = round((total_deposits_temp / group['CB Deposit'].sum()) * 100) 
+  deposite_rate = round((total_deposits_temp / total_value_temp) * 100) 
   arr.append(str(deposite_rate)+"%")
 
   return 
