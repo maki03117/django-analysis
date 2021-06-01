@@ -69,7 +69,6 @@ def output():
 
   link = 'https://sumopay.asia/yj2bxj3z9hhae60/csv-download?start_time=' + start_date + '&' + 'end_time=' + end_date;
   print(link)
-  # return
   driver.get(link)
 
   # Wait up to 40 seconds for a file taking time to download
